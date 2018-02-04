@@ -3,35 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Tabela kalorii i wartości odżywczych</title>
-    <link rel="stylesheet" href="style/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
 
 </head>
 <body ng-app="checkCalories">
 
     <header>
-        <h2>Tabela kalorii i wartości odżywczych</h2>
+        <div class="intro">
+            <h1>Tabela kalorii i wartości odżywczych</h1>
 
-        <p>Sprawdź kaloryczność oraz makroskładniki podstawowych produktów</p>
+            <div class="mainTxt">
+                <img src="images/apple.svg">
+                <p>Sprawdź kaloryczność oraz makroskładniki podstawowych produktów</p>
+            </div>
+        </div>
     </header>
 
 <div class="table_content" ng-controller="caloriesController">
 <div class="search">
-    <span> Szukaj: </span>
-    <input type="text" placeholder="Produkt..." ng-model="search">
+    <input type="text" placeholder="Wpisz nazwę szukanego produktu..." ng-model="search">
 </div>
 
-
+<div class="table">
     <table>
         <thead>
-            <tr>
-                <th ng-repeat="naglowek in [
+        <tr>
+            <th ng-repeat="naglowek in [
                     'Produkt', 'Kalorie', 'Białka[g]', 'Węglowodany[g]', 'Tłuszcze[g]'
                     ]">
-                    {{naglowek}}
-                </th>
-            </tr>
+                {{naglowek}}
+            </th>
+        </tr>
         </thead>
         <tbody>
         <tr ng-repeat="product in products | filter : search">
@@ -43,6 +47,7 @@
         </tr>
         </tbody>
     </table>
+</div>
 </div>
 
 </body>
