@@ -1,6 +1,6 @@
 ## Food calorie table
 
-Used technologies:
+Technologies used:
 
 * AngularJS,
 * Sass,
