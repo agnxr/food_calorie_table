@@ -23,7 +23,36 @@
 
 <div class="table_content" ng-controller="caloriesController">
 <div class="search">
+    <h4>1. Sprawdź, czy produkt już istnieje:</h4> 
     <input type="text" placeholder="Wpisz nazwę szukanego produktu..." ng-model="search">
+</div>
+
+<div id="adding">
+    <h4>2. Dodaj nowy produkt: </h4>
+    <form>
+        <label>Produkt (nazwa): </label>
+        <input type="text" ng-model="productName">
+
+        <label>Kalorie</label>
+        <input type="text" ng-model="productCal">
+
+        <label>Białka:</label>
+        <input type="text" ng-model="productProtein">
+
+        <label>Węglowodany:</label>
+        <input type="text" ng-model="productCarb">
+
+        <label>Tłuszcze:</label>
+        <input type="text" ng-model="productFat">
+
+
+        <button class="add" ng-click="addProd()">Dodaj produkt</button>
+    </form>
+</div>
+
+<div>
+    <h4>3. Edytuj przycikiem: &#9998;</h4>
+    <h4>4. Usuń za pomocą "&times;".</h4>
 </div>
 
 <div class="table">
@@ -31,7 +60,7 @@
         <thead>
         <tr>
             <th ng-repeat="naglowek in [
-                    'Produkt', 'Kalorie', 'Białka[g]', 'Węglowodany[g]', 'Tłuszcze[g]'
+                    'Index', 'Produkt', 'Kalorie', 'Białka[g]', 'Węglowodany[g]', 'Tłuszcze[g]', 'Usuń'
                     ]">
                 {{naglowek}}
             </th>
@@ -39,11 +68,28 @@
         </thead>
         <tbody>
         <tr ng-repeat="product in products | filter : search">
-            <td>{{product.Produkt}}</td>
-            <td>{{product.Kalorie}}</td>
-            <td>{{product.Bialko}}</td>
-            <td>{{product.Wegle}}</td>
-            <td>{{product.Tluszcz}}</td>
+            <td>{{$index}}</td>
+            <td>
+                <button class="edit_btn" ng-click="edit =! edit">&#9998;</button> {{product.Produkt}} 
+                <input type="text" ng-if="edit" ng-model="product.Produkt">
+            </td>
+            <td>{{product.Kalorie}}
+                 
+                <input type="text" ng-if="edit" ng-model="product.Kalorie">
+            </td>
+            <td>{{product.Bialko}}
+        
+                    <input type="text" ng-if="edit" ng-model="product.Bialko">
+            </td>
+            <td>{{product.Wegle}}
+    
+                    <input type="text" ng-if="edit" ng-model="product.Wegle">
+            </td>
+            <td>{{product.Tluszcz}}
+
+                    <input type="text" ng-if="edit" ng-model="product.Tluszcz">
+            </td>
+            <td><button class="del" ng-click="delProd($index)">&times;</button></td>
         </tr>
         </tbody>
     </table>

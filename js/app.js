@@ -1,9 +1,22 @@
+'use strict';
+
 var app = angular.module('checkCalories',[]);
 app.controller('caloriesController' , ['$scope', '$filter', function($scope){
+    
+    $scope.addProd = function(){
+        $scope.products.splice(0,0, { "Produkt": $scope.productName, "Kalorie": $scope.productCal,
+        "Bialko": $scope.productProtein, "Wegle": $scope.productCarb, "Tluszcz": $scope.productFat
+    } );
+    }
+
+    $scope.edit = false; //domyslnie; po kliknieciu -> true
+
+    $scope.delProd = function($index){
+        console.log([$index]);
+        $scope.products.splice($index, 1);
+    };
+
     $scope.products = [
-
-
-
         {
             "Produkt": "Woda",
             "Kalorie": 0,
