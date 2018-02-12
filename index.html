@@ -23,27 +23,37 @@
 
 <div class="table_content" ng-controller="caloriesController">
 <div class="search">
-    <h4>1. Sprawdź, czy produkt już istnieje:</h4> 
+    <h4>1. Znajdź produkt:</h4> 
     <input type="text" placeholder="Wpisz nazwę szukanego produktu..." ng-model="search">
 </div>
 
 <div id="adding">
     <h4>2. Dodaj nowy produkt: </h4>
     <form>
-        <label>Produkt (nazwa): </label>
-        <input type="text" ng-model="productName">
+        <div>
+            <label>Produkt (nazwa): </label>
+            <input type="text" ng-model="productName">
+        </div>
 
-        <label>Kalorie</label>
-        <input type="text" ng-model="productCal">
+        <div>
+            <label>Kalorie</label>
+            <input type="text" ng-model="productCal">
+        </div>
 
-        <label>Białka:</label>
-        <input type="text" ng-model="productProtein">
+        <div>
+            <label>Białka:</label>
+            <input type="text" ng-model="productProtein">
+        </div>
 
-        <label>Węglowodany:</label>
-        <input type="text" ng-model="productCarb">
+        <div>
+            <label>Węglowodany:</label>
+            <input type="text" ng-model="productCarb">
+        </div>
+        <div>
+            <label>Tłuszcze:</label>
+            <input type="text" ng-model="productFat">
+        </div>
 
-        <label>Tłuszcze:</label>
-        <input type="text" ng-model="productFat">
 
 
         <button class="add" ng-click="addProd()">Dodaj produkt</button>
@@ -51,8 +61,7 @@
 </div>
 
 <div>
-    <h4>3. Edytuj przycikiem: &#9998;</h4>
-    <h4>4. Usuń za pomocą "&times;".</h4>
+    <h4>3. Edytuj i zatwierdź przycikiem <span id="ed">&#9998;</span> lub usuń za pomocą <span id="delete">&times;</span>.</h4>
 </div>
 
 <div class="table">
