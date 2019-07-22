@@ -1,5 +1,11 @@
 ## Food calorie table
 
+The app allows you to
+* search products
+* edit products
+* remove products
+* add new items
+
 Technologies used:
 
 * AngularJS,
