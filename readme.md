@@ -3,7 +3,7 @@
 Technologies used:
 
 * AngularJS,
-* CSS3(Sass),
+* Sass,
 * HTML5.
 
 Demo: https://agnxr.github.io/food_calorie_table
